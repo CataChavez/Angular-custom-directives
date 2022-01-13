@@ -1,1 +1,48 @@
-<p>add works!</p>
+<h1 class="mt-5">Add Products</h1>
+<hr>
+
+<form action="" [formGroup]="myForm">
+    <div class="row g-3 align-items-center mb-3">
+
+        <div class="col-auto">
+            <label class="col-form-label">Product Name:</label>              
+            
+        </div>
+
+        <div class="col-auto">
+            <input type="form-control" formControlName="name">            
+        </div>
+
+        <div class="col-auto">
+            <!-- <span class="form-text" *ngIf="hasError('name')">This field is required</span>  --> 
+            <span error-msg
+                *showIf="myForm.controls['name'].invalid">
+            </span>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <button class="btn btn-primary">Save</button>
+            </div>
+
+        </div>
+
+
+    </div>
+</form>
+
+<h3 class="mt-5">Form</h3>
+<pre>Value: {{ myForm.value | json }}</pre>
+<pre>Valid: {{ myForm.valid }}</pre>
+
+<div class="row mt-5" 
+    *showIf="myForm.valid">
+    >
+
+    <div class="col">
+        <div class="alert alert-primary">
+            It's all OK!
+        </div>
+    </div>
+
+</div>
